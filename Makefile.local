@@ -1,0 +1,2 @@
+PACKAGE = dapper
+NAMESPACE = github.com/akerl
