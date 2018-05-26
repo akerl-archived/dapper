@@ -100,13 +100,15 @@ func readStyleFromDir(dir string) (Style, error) {
 		return s, err
 	}
 
-	sectionGlob := filepath.Join(dir, sectionDir, "*")
+	sectionGlob := filepath.Join(dir, sectionDir, "*", "style.css")
 	sectionDirs, err := filepath.Glob(sectionGlob)
 	if err != nil {
 		return s, err
 	}
-	for _, x := range sectionDirs {
-		sect, err := readSectionFromDir(x)
+	// Use index instead of name so that we count in numerical order
+	for index := range sectionDirs {
+		sectionDir := filepath.Join(dir, sectionDir, strconv.Itoa(index))
+		sect, err := readSectionFromDir(sectionDir)
 		if err != nil {
 			return s, err
 		}
