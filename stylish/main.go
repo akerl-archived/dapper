@@ -19,7 +19,7 @@ const (
 	sectionDir = "sections"
 )
 
-var cleanNameRegexp = regexp.MustCompile("[^\\w]+")
+var cleanNameRegexp = regexp.MustCompile(`[^\w]+`)
 
 func readJSONFile(object interface{}, pathSegments ...string) error {
 	data, err := readTextFile(pathSegments...)
