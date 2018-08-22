@@ -31,7 +31,7 @@ func readJSONFile(object interface{}, pathSegments ...string) error {
 
 func readTextFile(pathSegments ...string) ([]byte, error) {
 	path := filepath.Join(pathSegments...)
-	return ioutil.ReadFile(path)
+	return ioutil.ReadFile(path) // #nosec
 }
 
 func writeJSONFile(data interface{}, pathSegments ...string) error {
